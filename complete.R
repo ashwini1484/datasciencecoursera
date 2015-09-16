@@ -49,7 +49,7 @@ complete <- function(directory,id=1:332)
                          #complete case observations
                          if (i==1)
                          {
-                             fileComplete <- c(id[i],numCompleteCase)
+                             fileComplete <- data.frame(id[i],numCompleteCase)
                          }
                          else
                          {
@@ -62,13 +62,12 @@ complete <- function(directory,id=1:332)
                      
                      if (i==2)
                      {
-                         fileComplete <- matrix(data=c(id,numCompleteCase),1,2)
+                         fileComplete <- data.frame(id,numCompleteCase)
                      }
                      
                      ##give row name and column names to the matrix
                      colnames(fileComplete) <- c("id","nobs")
-                     rownames(fileComplete) <- 1:nrow(fileComplete)
                      
                      ##print output
-                     print(fileComplete)
+                     return(fileComplete)
                  }
